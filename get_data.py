@@ -1,21 +1,32 @@
 import requests
 import json
+import pygal
 
-# url = "http://data.rada.gov.ua/open/data/mps-ids.json"
-# url ="https://data.gov.ua/api/3/action/package_show?id=470196d3-4e7a-46b0-8c0c-883b74ac65f0"
-# url = "https://data.rada.gov.ua/ogd/mps/data/mps-ids.json"
-# r = requests.get(url)
-#
-# data = json.loads(r.text)
-#
-# # print(data)
-# json.dump(data, open("deputaty.json", "w", encoding="utf-8"), ensure_ascii=False, indent=4)
+url = "http://data.rada.gov.ua/open/data/mps-ids.json"
 
-url_budget = "https://data.rada.gov.ua/ogd/zpr/skl8/bills-skl8.json"
+url_budget = "https://data.rada.gov.ua/ogd/fin/dkaz/fin_transactions_mps_stat.json"
 
 budg = requests.get(url_budget)
 
 data_budg = json.loads(budg.text)
 
-print(data_budg)
+deputies = []
+salaries = []
+dct = {}
+for i in data_budg:
+    try:
+        if "Невідомо" not in data_budg[i]["full_name"]:
+            deputies.append(data_budg[i]["full_name"])
+            salaries.append(float(data_budg[i]["amount"]))
+            dct[data_budg[i]["full_name"]] = float(data_budg[i]["amount"])
+    except:
+        pass
+print(len(deputies))
+print(len(salaries))
 
+
+b_chart = pygal.Bar(width=8000)
+b_chart.title = "Зарплати депутатів"
+for j in dct.keys():
+    b_chart.add(j, dct[j])
+b_chart.render_to_file("salaries.svg")
