@@ -25,8 +25,8 @@ print(len(deputies))
 print(len(salaries))
 
 
-b_chart = pygal.Bar(width=8000)
-b_chart.title = "Зарплати депутатів"
-for j in dct.keys():
-    b_chart.add(j, dct[j])
-b_chart.render_to_file("salaries.svg")
+# b_chart = pygal.Bar(width=8000)
+# b_chart.title = "Зарплати депутатів"
+# for j in dct.keys():
+#     b_chart.add(j, dct[j])
+# b_chart.render_to_file("salaries.svg")
