@@ -87,3 +87,4 @@ if __name__ == "__main__":
         if "Шевченко" in i.fullname:
             print(i)
             print(i.salary)
+
