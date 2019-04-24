@@ -18,7 +18,7 @@ class Deputy:
     def visualize(self):
         pass
 
-class Salaries(dict):
+class Salaries():
     def __init__(self):
         self.salaries = {}
         self.url = None
@@ -64,8 +64,8 @@ class Salaries(dict):
         mean = total / len(self.salaries)
         return round(mean, 2)
 
-    # def __iter__(self):
-    #     return iter(self._salaries)
+    def __iter__(self):
+        return iter(self.salaries.items())
 
 
 
@@ -77,7 +77,7 @@ if __name__ == "__main__":
     print(sals.sort())
     print(sals.mean())
     deps = []
-    for dep, sal in sals.salaries.items():
+    for dep, sal in sals:
         deputy = Deputy(dep)
         deputy.set_salary(sal)
         deps.append(deputy)
