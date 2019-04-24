@@ -1,90 +1,42 @@
-import requests
-import json
-
 class Deputy:
+    """Deputy representation class"""
     def __init__(self, fullname):
+        """Initialize the object"""
         self.fullname = fullname
         self.salary = None
-        self.spendings = None
+        self.orgs = None
+        self.present = None
+        self.absent = None
+        self.projects = None
+        self.approved_projects = None
         self.coef = None
 
     def set_salary(self, amount):
+        """Set the salary to particular deputy"""
         self.salary = amount
 
+    def set_orgs(self, count):
+        """Set organizations and committees to particular deputy"""
+        self.orgs = count
+
+    def set_present(self, pres):
+        """Set presence and absence to particular deputy"""
+        self.present = pres[0]
+        self.absent = pres[1]
+
+    def set_projects(self, pros):
+        """Set projects and approved projects to particular deputy"""
+        self.projects = pros[0]
+        self.approved_projects = pros[1]
+
     def __str__(self):
-        text = "Депутат {}, має зарплату {} грн.".format(self.fullname, self.salary)
+        """Comfortable string representation of the object"""
+        text = "Депутат {}, отримав з бюджету {} грн., бере участь у {} " \
+               "комітетах та організаціях, на засіданнях був присутнім {} " \
+               "раз та відсутнім {} раз, законопроектів - {} (схвалених {})".format(self.fullname,
+                    self.salary, self.orgs, self.present, self.absent, self.projects, self.approved_projects)
         return text
 
     def visualize(self):
+        """Visualize the statistics about deputy"""
         pass
-
-class Salaries():
-    def __init__(self):
-        self.salaries = {}
-        self.url = None
-
-    def add(self, fullname, salary):
-        self.salaries[fullname] = salary
-
-    def set_url(self, url):
-        self.url = url
-
-    def get_data(self):
-        budg = requests.get(self.url)
-        data_budg = json.loads(budg.text)
-
-        deputies = []
-        salaries = []
-        # dct = {}
-        for i in data_budg:
-            try:
-                if "Невідомо" not in data_budg[i]["full_name"]:
-                    deputies.append(data_budg[i]["full_name"])
-                    salaries.append(float(data_budg[i]["amount"]))
-                    # dct[data_budg[i]["full_name"]] = float(data_budg[i]["amount"])
-            except:
-                pass
-
-        for j in range(len(deputies)):
-            self.add(deputies[j], salaries[j])
-
-    def __len__(self):
-        return len(self.salaries)
-
-    def __str__(self):
-        return str(self.salaries)
-
-    def sort(self):
-        return sorted(self.salaries.items(), key=lambda x: x[1])
-
-    def mean(self):
-        total = 0
-        for i in self.salaries.values():
-            total += i
-        mean = total / len(self.salaries)
-        return round(mean, 2)
-
-    def __iter__(self):
-        return iter(self.salaries.items())
-
-
-
-if __name__ == "__main__":
-    sals = Salaries()
-    sals.set_url("https://data.rada.gov.ua/ogd/fin/dkaz/fin_transactions_mps_stat.json")
-    sals.get_data()
-    print(sals)
-    print(sals.sort())
-    print(sals.mean())
-    deps = []
-    for dep, sal in sals:
-        deputy = Deputy(dep)
-        deputy.set_salary(sal)
-        deps.append(deputy)
-    print(deps)
-    print(deps[1])
-    for i in deps:
-        if "Шевченко" in i.fullname:
-            print(i)
-            print(i.salary)
-
