@@ -2,14 +2,22 @@ class Deputy:
     """Deputy representation class"""
     def __init__(self, fullname):
         """Initialize the object"""
+        # self.fullname = fullname
+        # self.salary = None
+        # self.orgs = None
+        # self.present = None
+        # self.absent = None
+        # self.projects = None
+        # self.approved_projects = None
+        # self.coef = None
         self.fullname = fullname
-        self.salary = None
-        self.orgs = None
-        self.present = None
-        self.absent = None
-        self.projects = None
-        self.approved_projects = None
-        self.coef = None
+        self.salary = 0
+        self.orgs = 0
+        self.present = 0
+        self.absent = 0
+        self.projects = 0
+        self.approved_projects = 0
+        self.coef = 0
 
     def set_salary(self, amount):
         """Set the salary to particular deputy"""
@@ -29,12 +37,23 @@ class Deputy:
         self.projects = pros[0]
         self.approved_projects = pros[1]
 
+    def set_coef(self):
+        pres_coef = self.present * (self.present / (self.absent + self.present))
+        self.coef = round(((self.orgs * 10 + pres_coef + self.projects + self.approved_projects * 100) /
+                           self.salary) * 1000, 2)
+
     def __str__(self):
         """Comfortable string representation of the object"""
         text = "Депутат {}, отримав з бюджету {} грн., бере участь у {} " \
                "комітетах та організаціях, на засіданнях був присутнім {} " \
-               "раз та відсутнім {} раз, законопроектів - {} (схвалених {})".format(self.fullname,
-                    self.salary, self.orgs, self.present, self.absent, self.projects, self.approved_projects)
+               "раз та відсутнім {} раз, законопроектів - {} (схвалених {}), КОЕФІЦІЄНТ = {}".format(self.fullname,
+                    self.salary, self.orgs, self.present, self.absent, self.projects, self.approved_projects, self.coef)
+        return text
+
+    def csv_format(self):
+        text = "{}, {}, {}, {}, {}, {}, {}, {}".format(self.fullname, self.salary, self.orgs,
+                                                   self.present, self.absent, self.projects,
+                                                   self.approved_projects, self.coef)
         return text
 
     def visualize(self):

@@ -2,6 +2,7 @@ import json
 import requests
 import pandas as pd
 import io
+from Deputy import Deputy
 
 
 class DeputiesData:
@@ -62,8 +63,9 @@ class DeputiesData:
         try:
             self.deputies[fullname].append(projects)
         except:
-            self.deputies[fullname] = []
-            self.deputies[fullname].append(projects)
+            pass
+            # self.deputies[fullname] = []
+            # self.deputies[fullname].append(projects)
 
     def set_salaries_url(self, url):
         """
@@ -162,6 +164,25 @@ class DeputiesData:
         Get the data with projects and approved projects and save it
         :return: None
         """
+        # proj = requests.get(self.projects_url)
+        # data = json.loads(proj.text)
+        # with open("projects.json", "r", encoding="utf-8") as f:
+        #     data = json.load(f)
+        # for name in self.deputies.keys():
+        #     name_1 = name
+        #     try:
+        #         deputat = name.split()[0]
+        #         count_all = 0
+        #         count_ok = 0
+        #         for law in data:
+        #             if deputat in str(law):
+        #                 count_all += 1
+        #             if deputat in str(law) and "Закон прийнято" in str(law):
+        #                 count_ok += 1
+        #         self.add_projects(name_1, (count_ok, count_all))
+        #         # print(name, ": ", count_ok, "/", count_all)
+        #     except:
+        #         self.add_projects(name, None)
         pass
 
     def __len__(self):
@@ -201,7 +222,7 @@ class DeputiesData:
         Iterate the object
         :return: iter
         """
-        return iter(self.salaries.items())
+        return iter(self.deputies.items())
 
 
 if __name__ == "__main__":
@@ -212,4 +233,62 @@ if __name__ == "__main__":
     sals.get_orgs_data()
     sals.set_present_url("https://data.rada.gov.ua/ogd/mps/koms/mps-kom_mps-skl8.json")
     sals.get_present_data()
-    print(sals)
+    sals.set_projects_url("https://data.rada.gov.ua/ogd/zpr/skl8/bills-skl8.json")
+    sals.get_projects_data()
+    # print(sals)
+    deputies = []
+
+    file = open("info.txt", "a", encoding="utf-8")
+    file.write("fullname, salary, orgs, present, absent, projects, approved_projects, coef")
+    with open("projects.json", "r", encoding="utf-8") as f:
+        data = json.load(f)
+    for dep in sals:
+        # print(dep)
+        deputy = Deputy(dep[0])
+        try:
+            count_all = 0
+            count_ok = 0
+            deputat = dep[0].split()[0]
+            for law in data:
+                if deputat in str(law):
+                    count_all += 1
+                if deputat in str(law) and "Закон прийнято" in str(law):
+                    count_ok += 1
+            deputy.set_projects((count_all, count_ok))
+            deputy.set_salary(dep[1][0])
+            deputy.set_orgs(dep[1][1])
+            deputy.set_present(dep[1][2])
+            deputy.set_coef()
+            # print("ok")
+            # deputies.append(deputy)
+            # print(deputy)
+            file.write(deputy.csv_format() + "\n")
+            # print(deputy.csv_format())
+        except:
+            # print("hello")
+            # print(deputy)
+            pass
+    file.close()
+    # print(deputies)
+    # with open("info.txt", "a", encoding="utf-8") as file:
+    #     for i in deputies:
+    #         print(i)
+    #         file.write(i)
+
+    # for i in deputies:
+    #     print(i)
+    # with open("projects.json", "r", encoding="utf-8") as f:
+    #     data = json.load(f)
+    #
+    # count_all = 0
+    # count_ok = 0
+    # deputat = "Ляшко"
+    # for law in data:
+    #     if deputat in str(law):
+    #         count_all += 1
+    #     if deputat in str(law) and "Закон прийнято" in str(law):
+    #         count_ok += 1
+    #
+    # print(deputat, ": ", count_ok, "/", count_all)
+
+
