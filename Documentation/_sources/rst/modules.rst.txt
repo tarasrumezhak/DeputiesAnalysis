@@ -1,0 +1,11 @@
+Coursework
+==========
+
+.. toctree::
+   :maxdepth: 4
+
+   Deputy
+   deputies_data
+   main
+   test_deputy
+   visual

@@ -1,0 +1,48 @@
+<html>
+  <head>
+		<link rel="stylesheet" type="text/CSS" href="../static/portfolio_css/style.css" />
+		<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <style>
+            .avatar{
+                width:130px;
+                height:130px;
+                background:rgba(255,255,255,1);
+                position:absolute;
+                top:65px;
+                left:40px;
+                border-radius:100%;
+                background-image: url({{ image }});
+                background-size:100% 100%;
+                padding:7px;
+                border:4px solid rgba(255,255,255,1)
+            }
+        </style>
+  </head>
+	<body>
+		<div class="portfoliocard">
+		<div class="coverphoto"></div>
+		<div class="avatar"></div>
+		<div class="left_col">
+			<div class="followers">
+				<div class="follow_count">{{ salary }}</div>
+				Витрати
+			</div>
+			<div class="following">
+				<div class="follow_count">{{ coef }}</div>
+				Коефіцієнт
+			</div>
+		</div>
+		<div class="right_col">
+			<h2 class="name">{{ name }}</h2>
+			<h3 class="location">Депутат Верховної Ради України</h3>
+			<ul class="contact_information">
+                <li class="website"><a class="nostyle" href="https://uk.wikipedia.org/wiki/{{ wiki }}">Wikipedia</a></li>
+				<li class="work">Член {{ orgs }} організацій та комітетів</li>
+				<li class="mail">Присутність на засіданнях - {{ pres }}</li>
+				<li class="phone">Відсутність на засіданнях - {{ absent }}</li>
+                <li class="resume"> {{ laws }} законопроектів ({{ accepted }} прийняті)</li>
+			</ul>
+		</div>
+		</div>
+	</body>
+</html>

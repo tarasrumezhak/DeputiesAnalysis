@@ -2,14 +2,6 @@ class Deputy:
     """Deputy representation class"""
     def __init__(self, fullname):
         """Initialize the object"""
-        # self.fullname = fullname
-        # self.salary = None
-        # self.orgs = None
-        # self.present = None
-        # self.absent = None
-        # self.projects = None
-        # self.approved_projects = None
-        # self.coef = None
         self.fullname = fullname
         self.salary = 0
         self.orgs = 0
@@ -51,6 +43,7 @@ class Deputy:
         return text
 
     def csv_format(self):
+        """Comfortable csv representation of the object"""
         text = "{}, {}, {}, {}, {}, {}, {}, {}".format(self.fullname, self.salary, self.orgs,
                                                    self.present, self.absent, self.projects,
                                                    self.approved_projects, self.coef)

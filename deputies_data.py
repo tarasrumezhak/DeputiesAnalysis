@@ -269,6 +269,8 @@ if __name__ == "__main__":
             # print(deputy)
             pass
     file.close()
+
+    #===================ADDITIONAL FOR TESTING====================================
     # print(deputies)
     # with open("info.txt", "a", encoding="utf-8") as file:
     #     for i in deputies:

@@ -1,0 +1,7 @@
+deputies\_data module
+=====================
+
+.. automodule:: deputies_data
+    :members:
+    :undoc-members:
+    :show-inheritance:

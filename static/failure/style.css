@@ -1,7 +1,5 @@
 body {
-  /*background-color: #ffe508;*/
-   background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Flag_of_Ukraine_%28with_coat_of_arms_2%29.svg/2000px-Flag_of_Ukraine_%28with_coat_of_arms_2%29.svg.png");
-  background-size:100% 600%;
+  background-color: #FF9800;
   color: #fff;
   margin: 0;
 }
@@ -146,8 +144,8 @@ input {
 
 body {
     margin: 0;
-    /*background-color: #f5ff00;*/
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Flag_of_Ukraine_%28with_coat_of_arms_2%29.svg/2000px-Flag_of_Ukraine_%28with_coat_of_arms_2%29.svg.png");
+    background-color: #5774b8;
+
 }
 
 

@@ -1,0 +1,7 @@
+Deputy module
+=============
+
+.. automodule:: Deputy
+    :members:
+    :undoc-members:
+    :show-inheritance:

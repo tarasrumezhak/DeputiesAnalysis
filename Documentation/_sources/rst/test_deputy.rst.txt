@@ -1,0 +1,7 @@
+test\_deputy module
+===================
+
+.. automodule:: test_deputy
+    :members:
+    :undoc-members:
+    :show-inheritance:

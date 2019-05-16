@@ -1,0 +1,217 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>deputies_data module &#8212; Deputies Analysis 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-deputies_data">
+<span id="deputies-data-module"></span><h1>deputies_data module<a class="headerlink" href="#module-deputies_data" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="deputies_data.DeputiesData">
+<em class="property">class </em><code class="descclassname">deputies_data.</code><code class="descname">DeputiesData</code><a class="headerlink" href="#deputies_data.DeputiesData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to represent the information about deputies</p>
+<dl class="method">
+<dt id="deputies_data.DeputiesData.add_orgs">
+<code class="descname">add_orgs</code><span class="sig-paren">(</span><em>fullname</em>, <em>orgs_count</em><span class="sig-paren">)</span><a class="headerlink" href="#deputies_data.DeputiesData.add_orgs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add information about organizations and committees
+:param fullname: str
+:param orgs_count: int
+:return: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deputies_data.DeputiesData.add_present">
+<code class="descname">add_present</code><span class="sig-paren">(</span><em>fullname</em>, <em>present</em><span class="sig-paren">)</span><a class="headerlink" href="#deputies_data.DeputiesData.add_present" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add information about presence and absence
+:param fullname: str
+:param present: tuple
+:return: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deputies_data.DeputiesData.add_projects">
+<code class="descname">add_projects</code><span class="sig-paren">(</span><em>fullname</em>, <em>projects</em><span class="sig-paren">)</span><a class="headerlink" href="#deputies_data.DeputiesData.add_projects" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add information about projects and approved projects
+:param fullname: str
+:param present: tuple
+:return: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deputies_data.DeputiesData.add_salaries">
+<code class="descname">add_salaries</code><span class="sig-paren">(</span><em>fullname</em>, <em>salary</em><span class="sig-paren">)</span><a class="headerlink" href="#deputies_data.DeputiesData.add_salaries" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add information about salaries
+:param fullname: str
+:param salary: float
+:return: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deputies_data.DeputiesData.get_orgs_data">
+<code class="descname">get_orgs_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#deputies_data.DeputiesData.get_orgs_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the data with organizations and committees and save it
+:return: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deputies_data.DeputiesData.get_present_data">
+<code class="descname">get_present_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#deputies_data.DeputiesData.get_present_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the data with presence and absence and save it
+:return: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deputies_data.DeputiesData.get_projects_data">
+<code class="descname">get_projects_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#deputies_data.DeputiesData.get_projects_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the data with projects and approved projects and save it
+:return: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deputies_data.DeputiesData.get_salaries_data">
+<code class="descname">get_salaries_data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#deputies_data.DeputiesData.get_salaries_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the data with salaries and save it
+:return: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deputies_data.DeputiesData.mean">
+<code class="descname">mean</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#deputies_data.DeputiesData.mean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the mean value of all salaries
+:return: float</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deputies_data.DeputiesData.set_orgs_url">
+<code class="descname">set_orgs_url</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="headerlink" href="#deputies_data.DeputiesData.set_orgs_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the url to data with organizations and committees
+:param url: str
+:return: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deputies_data.DeputiesData.set_present_url">
+<code class="descname">set_present_url</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="headerlink" href="#deputies_data.DeputiesData.set_present_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the url to data with presence and absence
+:param url: str
+:return: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deputies_data.DeputiesData.set_projects_url">
+<code class="descname">set_projects_url</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="headerlink" href="#deputies_data.DeputiesData.set_projects_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the url to data with projects and approved projects
+:param url: str
+:return: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deputies_data.DeputiesData.set_salaries_url">
+<code class="descname">set_salaries_url</code><span class="sig-paren">(</span><em>url</em><span class="sig-paren">)</span><a class="headerlink" href="#deputies_data.DeputiesData.set_salaries_url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the url to data with salaries
+:param url: str
+:return: None</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="deputies_data.DeputiesData.sort">
+<code class="descname">sort</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#deputies_data.DeputiesData.sort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sort dict by salaries
+:return: list</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Deputies Analysis</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Taras Rumezhak.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/rst/deputies_data.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
